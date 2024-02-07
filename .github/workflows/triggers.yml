@@ -1,11 +1,11 @@
 name: Triggers
-run-name: ¡3 event triggers!
+run-name: Paso 2 - Triggers
 on:
   push:
     branches: ['main', 'aprendiendo-**']
     paths: ['**.yml']
   pull_request:
-    types: [opened, edited, labeled]
+    types: [opened, synchronize, labeled]
     branches: ['main', 'aprendiendo-**']
     paths:
       - '**.js'
