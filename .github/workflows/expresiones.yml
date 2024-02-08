@@ -1,6 +1,9 @@
 name: Expressions
 run-name: Paso 3 - Expresiones
 on:
+  push:
+    branches: ['main', 'aprendiendo-**']
+    paths: ['**.yml']
   workflow_dispatch:
     inputs:
       edad:
