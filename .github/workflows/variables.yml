@@ -1,0 +1,13 @@
+name: Variables
+run-name: Paso 5 - Variables
+on:
+  push:
+env:
+  mascot: Octocat
+  dia: Lunes
+jobs:
+  Saludo-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludar 
+        run: echo "Hello ${{ env.mascot }}, hoy es ${{ env.dia }}"

@@ -1,0 +1,35 @@
+name: Expressions
+run-name: Paso 3 - Expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: '¿Cual es tu edad?'
+        required: true
+        type: integer
+      nombre: 
+        description: '¿Cómo te llamas?'
+        required: true
+        default: 'Juan'
+        type: string
+jobs:
+  adult:
+    if: ${{ inputs.edad >= 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Definir nombre
+        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+
+      - name: Definir edad
+        run: echo "YEARS=${{ inputs.edad }}" >> $GITHUB_ENV
+      
+      - name: Resultado
+        run: echo ${{ inputs.nombre }} es mayor de edad
+  menor:
+    if: ${{ inputs.edad < 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resultado
+        run: echo ${{ inputs.nombre }} es menor de edad
+        
+    
