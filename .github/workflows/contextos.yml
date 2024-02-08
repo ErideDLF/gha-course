@@ -6,7 +6,7 @@ env:
   mascot: Octocat
 jobs:
   check-main:
-    if: ${{ github.ref = 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - name: Usando contexto GITHUB 
