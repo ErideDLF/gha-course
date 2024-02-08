@@ -1,0 +1,23 @@
+name: Context
+run-name: Paso 4 - Context
+on:
+  push:
+env:
+  mascot: Octocat
+jobs:
+  check-main:
+    if: ${{ github.ref = 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Usando contexto GITHUB 
+        run: echo "Desplegando en la rama $GITHUB_REF" >> $GITHUB_ENV
+
+      - name: Usando contexto ENV 
+        run: echo "Hi ${{ env.mascot }}"
+      
+      - name: Define Variable IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+      
+      - name: Usando contexto Step
+        run: echo "Hello from IP: ${{ steps.ip.outputs.ipv4 }}"
